@@ -1,0 +1,50 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns="sap.m" controllerName="ShedStatusReport.controller.Main">
+	<VBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="100%" direction="Column">
+		<items>
+			<f:SimpleForm id="formBroilers" title="Registrar" editable="true" breakpointL="1024" breakpointM="600" breakpointXL="1440"
+				backgroundDesign="Solid" layout="ResponsiveGridLayout">
+				<f:content>
+					<Toolbar xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+						<content>
+							<SearchField id="broilerField" width="40%" placeholder="Condición del Ave..." enableSuggestions="true" search="onSearch" suggest="onSuggest"
+								suggestionItems="{data>/broilers}">
+								<suggestionItems>
+									<SuggestionItem text="{data>NAME}" key="{data>SAMPLESID}"/>
+								</suggestionItems>
+							</SearchField>
+							<Input id="broilerInput" placeholder="Valor" width="40%"/>
+							<Button xmlns:core="sap.ui.core" text="+" width="auto" id="addBroiler" type="Accept" press="addListBroilerElement"/>
+						</content>
+					</Toolbar>
+					<List mode="Delete" delete="deleteBroiler" id="broilerList" items="{conditions>/broilerReport}">
+						<items>
+							<StandardListItem title="{conditions>NAME}" description="{conditions>VALUE}"/>
+						</items>
+					</List>
+				</f:content>
+			</f:SimpleForm>
+			<!--<Table id="broilersTable" mode="MultiSelect" inset="false" items="">
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Select width="100%"/>
+							<Input width="100%"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+				<columns>
+					<Column vAlign="Middle" width="50%">
+						<header>
+							<Label text="Característica"/>
+						</header>
+					</Column>
+					<Column vAlign="Middle" demandPopin="true" minScreenWidth="Tablet">
+						<header>
+							<Label text="Valor"/>
+						</header>
+					</Column>
+				</columns>
+			</Table>-->
+		</items>
+	</VBox>
+</core:FragmentDefinition>

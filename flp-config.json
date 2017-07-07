@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "ShedStatusReport.ShedStatusReport",
+        "description": "Reporte de Estado de Galpón",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#ShedStatusReport-Display",
+        "navigationComponentName": "ShedStatusReport",
+        "intentSemanticObject": "ShedStatusReport",
+        "intentAction": "Display",
+        "html5ApplicationName": "shedstatusreport",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "08e0c73a-8055-4458-81aa-098fef331bd9-1485277469332"
+        ],
+        "contentPackages": [
+            "3f91e726-b6ee-43b5-8285-715c4ccb021f-1473173874375"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Estado de Galpón",
+        "subtitle": "Reportar Estado de Galpón",
+        "searchKeywords": "Estado de Galpón,Reportar Estado de Galpón",
+        "displayIconUrl": "sap-icon://activities",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

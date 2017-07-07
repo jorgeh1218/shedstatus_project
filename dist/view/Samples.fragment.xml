@@ -1,0 +1,71 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns="sap.m"
+	controllerName="ShedStatusReport.controller.Main">
+	<VBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="100%" direction="Column">
+		<items>
+			<f:SimpleForm id="formSamples" title="Registrar" editable="true" breakpointL="1024" breakpointM="600" breakpointXL="1440"
+				backgroundDesign="Solid" layout="ResponsiveGridLayout">
+				<f:content>
+					<Toolbar xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+						<content> 
+							<SearchField id="sampleType" width="auto" placeholder="Tipo de Muestra..." enableSuggestions="true" suggest="onSuggest"
+								suggestionItems="{data>/samples}">
+								<suggestionItems>
+									<SuggestionItem text="{data>NAME}" key="{data>SAMPLESID}"/>
+								</suggestionItems>
+							</SearchField>
+							<SearchField id="sampleOrigin" width="auto" placeholder="Origen..." enableSuggestions="true" search="onSearch" suggest="onSuggest"
+								suggestionItems="{conditions>/sources}">
+								<suggestionItems>
+									<SuggestionItem text="{conditions>/name}" description="{path:'Price'} {path:'CurrencyCode'}" key="{ProductId}"/>
+								</suggestionItems>
+							</SearchField>
+							<Input id="sampleQuantity" type="Number" placeholder="Cantidad" width="15%"/>
+							<Input id="sampleNote" placeholder="Nota" width="30%"/>
+							<Button xmlns:core="sap.ui.core" text="+" width="auto" id="addSample" type="Accept" press="addListSampleElement"/>
+						</content>
+					</Toolbar>
+					<List mode="Delete" delete="deleteSample" id="sampleList" items="{conditions>/samplesReport}">
+						<items>
+							<StandardListItem title="{conditions>TYPE} - {conditions>ORIGIN}" info="{conditions>QUANTITY}" description="{conditions>NOTE}"/>
+						</items>
+					</List>
+				</f:content>
+			</f:SimpleForm>
+			<!-- Previous Version 1.0-->
+			<!--<Table id="samplesTable" mode="MultiSelect" inset="false" items="">
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Select width="100%"/>
+							<Select width="100%"/>
+							<Input width="100%"/>
+							<Input width="100%"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+				<columns>
+					<Column vAlign="Middle" demandPopin="true" minScreenWidth="Tablet">
+						<header>
+							<Label text="Tipo"/>
+						</header>
+					</Column>
+					<Column vAlign="Middle" demandPopin="true" minScreenWidth="Tablet">
+						<header>
+							<Label text="Origen"/>
+						</header>
+					</Column>
+					<Column vAlign="Middle" demandPopin="true" minScreenWidth="Tablet">
+						<header>
+							<Label text="Cantidad"/>
+						</header>
+					</Column>
+					<Column vAlign="Middle" demandPopin="true" minScreenWidth="Tablet">
+						<header>
+							<Label text="Notas"/>
+						</header>
+					</Column>
+				</columns>
+			</Table>-->
+		</items>
+	</VBox>
+</core:FragmentDefinition>

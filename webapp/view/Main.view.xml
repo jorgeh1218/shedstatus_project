@@ -1,0 +1,44 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="ShedStatusReport.controller.Main">
+	<Page showNavButton="true" title="{i18n>title}" navButtonPress="goSheds">
+		<content>
+			<ObjectHeader xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+				class="sapSuiteHrdrCntrInner" id="objectHeader" backgroundDesign="Solid"
+				intro="{i18n>breed}: Ross 380 - {i18n>gender}: Macho - {i18n>environment_type}: Controlado" fieldGroupIds="" markFavorite="true"
+				showMarkers="false" showTitleSelector="false" fullScreenOptimized="false" condensed="true" responsive="true" numberUnit="Aves"
+				title="{i18n>titleshed} {data>/shedSelected/SHEDCODE}"
+				number="{data>/shedSelected/DENSITY}"
+				icon="sap-icon://factory"/>
+			<IconTabBar select="iconTabBarSelect" id="tabBar" expandable="false" backgroundDesign="Solid" applyContentPadding="false">
+				<items>
+					<IconTabFilter text="Condiciones Amb." id="environmentTab">
+						<content>
+							<core:Fragment fragmentName="ShedStatusReport.view.Environment" type="XML"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="Condiciones Ave" id="broilersTab">
+						<content>
+							<core:Fragment fragmentName="ShedStatusReport.view.Broilers" type="XML"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="Muestras" id="samplesTab">
+						<content>
+							<core:Fragment fragmentName="ShedStatusReport.view.Samples" type="XML"/>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+		<footer>
+			<Bar id="__bar0">
+				<!--<contentLeft>
+					<Button xmlns:core="sap.ui.core" text="+"  width="auto" id="button2" type="Accept" press="onAdd"/>
+					<Button xmlns:core="sap.ui.core" text="x"  width="auto" id="button3" type="Reject" press="onDelete"/>
+				</contentLeft>-->
+				<contentRight>
+					<Button xmlns:core="sap.ui.core" text="Reportar" width="auto" id="button1" type="Accept" press="onReportDialog"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

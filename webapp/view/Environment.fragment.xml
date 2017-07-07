@@ -1,0 +1,68 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core"
+	xmlns="sap.m" controllerName="ShedStatusReport.controller.Main">
+	<!--<FlexBox height="100%" alignItems="Start">-->
+	<VBox xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="100%" direction="Column">
+		<items>
+			<f:SimpleForm id="formBasic" title="Información Básica" editable="true" breakpointL="1024" breakpointM="600" breakpointXL="1440"
+				backgroundDesign="Solid" layout="ResponsiveGridLayout">
+				<f:content>
+					<Label text="Temperatura"/>
+					<Input type="Number" placeholder="Min" value="{SupplierName}">
+						<layoutData>
+							<l:GridData span="L1 M2 S3"/>
+						</layoutData>
+					</Input>
+					<Input type="Number" placeholder="Max" value="{SupplierName}">
+						<layoutData>
+							<l:GridData span="L1 M2 S3"/>
+						</layoutData>
+					</Input>
+					<Input type="Number" placeholder="Actual" value="{SupplierName}">
+						<layoutData>
+							<l:GridData span="L1 M2 S3"/>
+						</layoutData>
+					</Input>
+					<Label text="Humedad"/>
+					<Input type="Number" placeholder="Min" value="{SupplierName}">
+						<layoutData>
+							<l:GridData span="L1 M2 S3"/>
+						</layoutData>
+					</Input>
+					<Input type="Number" placeholder="Max" value="{SupplierName}">
+						<layoutData>
+							<l:GridData span="L1 M2 S3"/>
+						</layoutData>
+					</Input>
+					<Input type="Number" placeholder="Actual" value="{SupplierName}">
+						<layoutData>
+							<l:GridData span="L1 M2 S3"/>
+						</layoutData>
+					</Input>
+				</f:content>
+			</f:SimpleForm>
+			<f:SimpleForm id="formRegisters" title="Registrar Condiciones" editable="true" breakpointL="1024" breakpointM="600" breakpointXL="1440"
+				backgroundDesign="Solid" layout="ResponsiveGridLayout">
+				<f:content>
+					<Toolbar xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+						<content>
+							<SearchField  id="environmentField" width="40%" placeholder="Condición Ambiental..." enableSuggestions="true" search="onSearch" suggest="onSuggest"
+								suggestionItems="{path:'data>/environment', sorter:{path:'data>NAME'}}">
+								<suggestionItems>
+									<SuggestionItem id="suggestionItem" text="{data>NAME}" key="{data>SAMPLESID}"/>
+								</suggestionItems>
+							</SearchField>
+							<Input id="environmentInput" placeholder="Valor" width="40%"/>
+							<Button xmlns:core="sap.ui.core" text="+" width="auto" id="addEnvironment" type="Accept" press="addListEnvironmentElement"/>
+						</content>
+					</Toolbar>
+					<List mode="Delete" delete="deleteEnvironment" id="environmentList" items="{conditions>/environmentReport}">
+						<items>
+							<StandardListItem title="{conditions>NAME}" description="{conditions>VALUE}"/>
+						</items>
+					</List>
+				</f:content>
+			</f:SimpleForm>
+		</items>
+		<!--</FlexBox>-->
+	</VBox>
+</core:FragmentDefinition>
